@@ -1,0 +1,21 @@
+The jar file is copied from local to hdfs
+
+
+
+
+
+public class copy{
+public static void main(String args[])throws Exception
+{
+if(args.length!=2) //the file length should not be 2.
+{
+Sytem.out.printl("pass 2 arguments"); //two arguments are passed by the user.
+System.exit(1);
+}
+Configuration confi= new Configuration(); //new configuration is created.
+FileSystem fs1=new FileSystem.get(confi); //new File is created.
+Path pa=new Path(args[0]);
+Path pa1=new Path(args[1]);
+fs1.copyTOLocalFile(pa,pa1);
+}
+}
