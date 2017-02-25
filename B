@@ -1,0 +1,27 @@
+Explain the importance and usage of the below terms in details
+
+ DFSInputStream:
+  -The input in the HDFS will be read using this class.
+  -Integrity is handled.
+  -And it helps in communication between name node and datanodes (each namenode will communicate with many data node).
+  -If there is any failure in datanode then it manages teh read process.
+  -DFSInputStream will manage the nodes of FSDataInputStream.
+                  
+DFSOutputStream:
+  -It will also perform various process similar to  DFSInputStream.
+  -With the help of DFSOutputStream node management happens between datanode and namenode.
+  -Each data will be broken into numerous packets and and during the writing process it will be in the internam queue called as data queue
+also it maintains the  internal queue called ack queue.
+
+FSDataInputStream:
+  -There will be a stream channel for reading of data.
+  -The data to be read will be provided by the client from FSDataInputStream.
+  -And the read will be called form the read().
+  -After the reading process gets over it will call close().
+
+FSDataOutputStream:
+  -And there will be Stream channel for data witing.
+  -And for the client to write the FSDataOutputStream will be returned from the Distributed File System.
+  -DFSoutputStream will be used by the FSdataOutputStream for datanode nad namenode communication.
+  -And signal write() will be passed to write data from the client side.
+  -after the data is written will pass close() signal to end the process.
